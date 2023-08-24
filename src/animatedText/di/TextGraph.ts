@@ -1,7 +1,7 @@
 import { Graph, LifecycleBound, ObjectGraph, Provides } from 'react-obsidian';
-import { messages } from '../../messages';
 import { useAnimatedTextViewModel } from '../animatedTextViewModel';
-import { AppModel as TextModel } from '../model/model';
+import { TextModel as TextModel } from '../model/textModel';
+import { messages } from '../../resources/strings';
 
 @LifecycleBound()
 @Graph()
