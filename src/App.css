@@ -1,18 +1,66 @@
-#root {
-  width: 100%;
-  margin: 0 auto;
-  padding-left: 5rem;
-}
-
 body {
   background-color: #1f303c;
+  padding: 5rem;
 }
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.app {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+}
+
+.learnMoreContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  padding-top: 5rem;
+  padding-right: 5rem;
+  flex-direction: row-reverse;
+  font-size: 1.3rem;
+  font-weight: 300;
+}
+
+.arrowAndText {
+  padding-right: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.arrowAndText img {
+  transform: rotate(90deg) scaleX(-1) translateY(-35px) translateX(15px);
+}
+
+.learnMoreContainer img {
+  height: 100px;
+  width: 100px;
+}
+
+.wixEng {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 80px;
+  padding: 1rem;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 .animatedText {
   color: #fff;
 }
 .textContainer {
-  align-items: start;
-  align-self: flex-start;
   width: 100%;
   font-size: 3rem;
   flex-direction: row;

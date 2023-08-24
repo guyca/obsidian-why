@@ -1,5 +1,5 @@
 import { Model, Observable, Unsubscribe } from 'react-obsidian';
-import { Message } from '../../entities/Message';
+import { Message } from '../../../entities/Message';
 
 const DURATION = 3000;
 
