@@ -19,3 +19,8 @@ export class Message {
     };
   }
 }
+
+export type SegmentedText = {
+  static: string;
+  animated: string;
+};

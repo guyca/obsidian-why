@@ -10,11 +10,7 @@ const _AnimatedText = ({ useViewModel }: Injected) => {
   return (
     <div className="textContainer">
       {`${staticText} `}
-      <TextTransition
-        springConfig={presets.slow}
-        inline
-        className="animatedText"
-      >
+      <TextTransition inline className="animatedText">
         {animatedText}
       </TextTransition>
     </div>

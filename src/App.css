@@ -1,6 +1,9 @@
 body {
-  background-color: #1f303c;
+  background-color: #733ca5;
   padding: 5rem;
+  background-image: url('./assets/bg2.png');
+  background-size: contain;
+  color: white;
 }
 
 #root {
