@@ -1,6 +1,6 @@
 import { DependenciesOf, injectComponent } from 'react-obsidian';
 import { TextGraph } from './di/TextGraph';
-import TextTransition, { presets } from 'react-text-transition';
+import TextTransition from 'react-text-transition';
 
 type Injected = DependenciesOf<TextGraph, 'useViewModel'>;
 
