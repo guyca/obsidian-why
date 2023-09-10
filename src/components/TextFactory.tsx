@@ -1,4 +1,4 @@
-import { Segment } from '../config';
+import { Segment } from '../config/data';
 import { AnimatedSegment } from './animatedText/AnimatedSegment';
 
 export class SegmentedTextFactory {

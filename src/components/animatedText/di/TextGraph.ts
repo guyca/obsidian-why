@@ -1,11 +1,12 @@
 import { Graph, LifecycleBound, ObjectGraph, Provides } from 'react-obsidian';
 import { useAnimatedTextViewModel } from '../animatedTextViewModel';
 import { TextModel as TextModel } from '../model/textModel';
-import { taglines } from '../../../config';
 import { SegmentedTextFactory } from '../../TextFactory';
+import { AppGraph } from '../../../di/AppGraph';
+import { ProjectModel } from '../../../model/ProjectModel';
 
 @LifecycleBound()
-@Graph()
+@Graph({ subgraphs: [AppGraph] })
 export class TextGraph extends ObjectGraph {
   @Provides()
   useViewModel(model: TextModel) {
@@ -13,8 +14,8 @@ export class TextGraph extends ObjectGraph {
   }
 
   @Provides()
-  model() {
-    return new TextModel(taglines);
+  model(projectModel: ProjectModel) {
+    return new TextModel(projectModel.project);
   }
 
   @Provides()

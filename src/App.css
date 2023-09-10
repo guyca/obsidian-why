@@ -18,6 +18,15 @@ body {
   align-items: center;
 }
 
+.logo {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 2.5rem;
+}
+
 .learnMoreContainer {
   position: absolute;
   top: 0;
