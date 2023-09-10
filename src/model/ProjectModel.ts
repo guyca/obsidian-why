@@ -9,6 +9,10 @@ export class ProjectModel {
     this.project,
     (project) => project.logo,
   );
+  public readonly qr = new MediatorObservable<string>().mapSource(
+    this.project,
+    (project) => project.qr,
+  );
 
   private index: ArrayIndex = new ArrayIndex(projects.length);
   private intervalId: number = -1;
@@ -19,10 +23,13 @@ export class ProjectModel {
 
   private setInterval() {
     clearInterval(this.intervalId);
-    this.intervalId = setInterval(() => {
-      this.project.value = projects[this.index.next()];
-      this.setInterval();
-    }, this.project.value.taglines.length * DURATION);
+    this.intervalId = setInterval(
+      () => {
+        this.project.value = projects[this.index.next()];
+        this.setInterval();
+      },
+      Math.max(this.project.value.taglines.length * DURATION, 4000),
+    );
     return () => clearInterval(this.intervalId);
   }
 }
