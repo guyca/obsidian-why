@@ -66,5 +66,16 @@ body {
 .textContainer {
   width: 100%;
   font-size: 3rem;
-  flex-direction: row;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+.fade-up-entered {
+  display: inline-block;
+  opacity: 1;
+  transition:
+    opacity 0.3s ease-in-out,
+    transform 0.3s ease-in-out;
 }
