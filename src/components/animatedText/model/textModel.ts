@@ -1,28 +1,28 @@
-import { Model, Observable, Unsubscribe } from 'react-obsidian';
-import { Message, SegmentedText } from '../../../entities/Message';
-import { ArrayIndex } from '../../../utils/ArrayIndex';
-
-const DURATION = 2000;
+import { MediatorObservable, Model, Observable } from 'react-obsidian';
+import { Project, Tagline } from '../../../config/data';
+import { DURATION } from '../../../config/constants';
 
 export class TextModel extends Model {
-  public readonly text: Observable<SegmentedText>;
+  public readonly tagline = new MediatorObservable<Tagline>();
+  private index: number = 0;
+  private intervalId: number = -1;
 
-  private messages: Message[];
-  private index: ArrayIndex;
-
-  constructor(messages: string[]) {
+  constructor(private project: Observable<Project>) {
     super();
-    this.messages = messages.map((m) => new Message(m));
-    this.index = new ArrayIndex(messages.length);
-    this.text = new Observable(this.messages[0].getSegmentedMessage());
+    this.tagline.mapSource(project, (project) => {
+      this.index = 0;
+      this.intervalId = this.setInterval();
+      return project.taglines[this.index];
+    });
   }
 
-  public start(): Unsubscribe {
-    const intervalId = setInterval(() => {
-      this.text.value = this.messages[this.index.next()].getSegmentedMessage(
-        this.messages[this.index.prev].message,
-      );
+  public setInterval() {
+    clearInterval(this.intervalId);
+    return setInterval(() => {
+      this.index += 1;
+      if (this.index < this.project.value.taglines.length) {
+        this.tagline.value = this.project.value.taglines[this.index];
+      }
     }, DURATION);
-    return () => clearInterval(intervalId);
   }
 }
