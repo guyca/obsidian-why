@@ -1,10 +1,12 @@
 import obsidianLogo from '../assets/obsidian.png';
 import detoxLogo from '../assets/detox.png';
 import UILIBLogo from '../assets/UILIB.png';
+import RNNLogo from '../assets/RNN.png';
 
 import obsidianQR from '../assets/obsidianQR.png';
 import detoxQR from '../assets/detoxQR.png';
 import UILIBQR from '../assets/UILIBQR.png';
+import RNNQR from '../assets/RNNQR.png';
 
 export type Segment = { text: string; animate: boolean };
 export type Tagline = Segment[];
@@ -57,4 +59,17 @@ const UILIB: Project = {
   taglines: [[{ text: 'Build React Native UIs with ease', animate: true }]],
 };
 
-export const projects = [obsidian, detox, UILIB];
+const RNN: Project = {
+  logo: RNNLogo,
+  qr: RNNQR,
+  taglines: [
+    [{ text: 'Write robust React Native applications', animate: true }],
+    [
+      { text: 'Write ', animate: false },
+      { text: 'Performant', animate: true },
+      { text: ' React Native applications', animate: false },
+    ],
+  ],
+};
+
+export const projects = [obsidian, detox, UILIB, RNN];
