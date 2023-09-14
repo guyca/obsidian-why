@@ -13,6 +13,10 @@ export class ProjectModel {
     this.project,
     (project) => project.qr,
   );
+  public readonly name = new MediatorObservable<string>().mapSource(
+    this.project,
+    (project) => project.name,
+  );
 
   private index: ArrayIndex = new ArrayIndex(projects.length);
   private intervalId: number = -1;

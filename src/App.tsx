@@ -1,11 +1,10 @@
 import { DependenciesOf, injectComponent } from 'react-obsidian';
 import './App.css';
 import { AnimatedText } from './components/animatedText/AnimatedText';
-import { LearnMore } from './components/LearnMore';
 import { WixEng } from './components/WixEng';
 import { useComponentDidMount } from './utils/useComponentDidMount';
 import { AppGraph } from './di/AppGraph';
-import { Logo } from './components/logo/Logo';
+import { Header } from './components/header/Header';
 
 const _App = ({ projectModel }: DependenciesOf<AppGraph, 'projectModel'>) => {
   useComponentDidMount(() => {
@@ -14,8 +13,7 @@ const _App = ({ projectModel }: DependenciesOf<AppGraph, 'projectModel'>) => {
 
   return (
     <div className="app">
-      <Logo />
-      <LearnMore />
+      <Header />
       <AnimatedText />
       <WixEng />
     </div>

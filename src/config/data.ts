@@ -11,12 +11,14 @@ import RNNQR from '../assets/RNNQR.png';
 export type Segment = { text: string; animate: boolean };
 export type Tagline = Segment[];
 export type Project = {
+  name: string;
   taglines: Tagline[];
   logo: string;
   qr: string;
 };
 
 const obsidian: Project = {
+  name: '@wix-incubator/obsidian',
   logo: obsidianLogo,
   qr: obsidianQR,
   taglines: [
@@ -41,6 +43,7 @@ const obsidian: Project = {
 };
 
 const detox: Project = {
+  name: '@wix/detox',
   logo: detoxLogo,
   qr: detoxQR,
   taglines: [
@@ -54,12 +57,14 @@ const detox: Project = {
 };
 
 const UILIB: Project = {
+  name: '@wix/react-native-ui-lib',
   logo: UILIBLogo,
   qr: UILIBQR,
   taglines: [[{ text: 'Build React Native UIs with ease', animate: true }]],
 };
 
 const RNN: Project = {
+  name: '@wix/react-native-navigation',
   logo: RNNLogo,
   qr: RNNQR,
   taglines: [
